@@ -3,11 +3,19 @@ import React from 'react';
 
 import {Container,Row,Col,Button,InputGroup,InputGroupAddon,Input} from 'reactstrap';
 import swal from '@sweetalert/with-react';
-import './../Assets/main.css';
+import '../Assets/Styles/main.css';
 
-import {HandleChange} from "../Utility";
+import {HandleChange,title} from "../Utility";
 
 class Login extends React.Component{
+
+    constructor(props){
+        super(props);
+        title('Login');
+        if(localStorage.getItem('is_login')){
+            props.history.push('/')
+        }
+    }
 
 
     state = {
@@ -17,7 +25,9 @@ class Login extends React.Component{
 
     login = (e) => {
         e.preventDefault();
-        if(this.state.username==='hello' && this.state.password==='123'){
+        const user=localStorage.getItem('username');
+        const pass=localStorage.getItem('password');
+        if(this.state.username===user && this.state.password===pass && this.state.pass!==null && this.state.username!==null){
             localStorage.setItem('is_login',true);
             // console.log(this.props)
             this.props.history.push('/');
@@ -25,12 +35,12 @@ class Login extends React.Component{
             swal(
                 <div>
 
+                    <span>
+                         username or password is wrong.
+                    </span>
                     <h3>
-                        There is an error with your username or password.
-                    </h3>
-                    <h1>
                         Please try again
-                    </h1>
+                    </h3>
                 </div>
             )
         }
@@ -41,7 +51,11 @@ class Login extends React.Component{
 
     register = (e)=>{
         e.preventDefault();
-        this.props.history.push('/register');
+        if(!localStorage.getItem('is_login')){
+            this.props.history.push('/register');
+        }else{
+            this.props.history.push('/');
+        }
 
     };
 

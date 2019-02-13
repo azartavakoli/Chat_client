@@ -14,3 +14,7 @@ export const protectedpage = (data) =>{
         data.history.push('/login')
     }
 };
+
+export const title =(page)=>{
+    document.title =  page
+};

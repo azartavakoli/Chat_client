@@ -11,7 +11,8 @@
  import NotFound from './Pages/NotFound';
 
  //Assets
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Assets/Styles/main.css';
 
 class App extends React.Component{
 

@@ -1,13 +1,14 @@
 
 import React from 'react';
 
-import {protectedpage} from './../Utility';
+import {protectedpage, title} from './../Utility';
 
 class Home extends React.Component{
 
     constructor(props){
         super(props);
-        protectedpage(props)
+        protectedpage(props);
+        title('Home')
     }
 
 

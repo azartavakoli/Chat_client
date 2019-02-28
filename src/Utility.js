@@ -25,11 +25,11 @@ export const title =(page)=>{
     document.title =  page
 };
 
-export const Icon =(props)=>{
-    console.log(props)
-    const{icon,...other} = props;
-    return(
-        <i{...other} className={`fa fa-${icon}`}/>
-
-    )
-};
+// export const Icon =(props)=>{
+//
+//     const{icon,...other} = props;
+//     return(
+//         <i{...other} className={`fa fa-${icon}`}/>
+//
+//     )
+// };

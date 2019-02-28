@@ -1,11 +1,17 @@
 
-// import React from 'react';
+import React from 'react';
 
 
 export function HandleChange(e){
     const {value,name} =e.target;
     this.setState({
         [name]:value
+    })
+}
+
+export function HandleOption(e) {
+    this.setState({
+        selectedOption:e.target.value
     })
 }
 
@@ -17,4 +23,13 @@ export const protectedpage = (data) =>{
 
 export const title =(page)=>{
     document.title =  page
+};
+
+export const Icon =(props)=>{
+    console.log(props)
+    const{icon,...other} = props;
+    return(
+        <i{...other} className={`fa fa-${icon}`}/>
+
+    )
 };

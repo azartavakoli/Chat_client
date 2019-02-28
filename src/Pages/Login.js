@@ -31,6 +31,7 @@ class Login extends React.Component{
             localStorage.setItem('is_login',true);
             // console.log(this.props)
             this.props.history.push('/');
+            
         }else{
             swal(
                 <div>

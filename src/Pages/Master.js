@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Profile from './../Sections/Profile';
-import {Container,Row,Col, Navbar, NavbarBrand,UncontrolledDropdown,ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
+import { Navbar, NavbarBrand,UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 import './../Assets/Styles/main.css';
 import {Icon} from "../Utility";
 
@@ -64,13 +64,10 @@ class Master extends React.Component {
     render() {
         // console.log(this.state)
         return (
-            <Container className='pic'>
-              <Row>
-                  <Col>
-                <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+            <div class="container">
 
-                </ButtonDropdown>
-                <Navbar className="mt-3">
+                <div class="main">
+                <Navbar className="pl-0 mt-3">
                     <UncontrolledDropdown inNavbar>
                     <DropdownToggle size='sm' outline  className='m-2'>
                         {<Icon icon={'bars'}/>}
@@ -89,13 +86,15 @@ class Master extends React.Component {
                     <NavbarBrand href="/" className="mr-auto" color='white'>HangOuts</NavbarBrand>
 
                 </Navbar>
+                      
                 <Profile data={this.state} history={this.props.history}/>
                 {
                     this.props.children
                 }
-                      </Col>
-                  </Row>
-            </Container>
+
+            </div>
+
+            </div>
         )
 
     }

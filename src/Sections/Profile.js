@@ -8,9 +8,9 @@ class Profile extends React.Component{
 
     render(){
         return(
-            <Container>
+            <Container className="ml-5">
                 <Row className="mt-3">
-                    <Col md={6} className="m-auto">
+                    <Col md={9} className="m-auto">
                         <Card body color='transparent'className='text-white border-0'>
                             <CardTitle ><h3>Hi , {this.props.data.name } !</h3></CardTitle>
                             <CardText>Get started by answering the questions</CardText>

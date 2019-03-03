@@ -33,15 +33,15 @@
 /*}*/
 
 body{
+    min-width:940px;
+    max-width:1024px;
 
+    background-image: url('./../Images/images14.jpg');
     position: relative;
-    background-image: url('./../Images/bridge7.jpg');
     background-repeat: no-repeat;
     background-size:cover;
     background-position:center;
-    max-width: 1024px;
-    min-width:940px;
-    height:700px;
+    background-attachment: fixed;
 }
 
 .color{
@@ -53,6 +53,43 @@ body{
 }
 
 .box{
-    margin-left: 220px;
-    margin-top: 70px;
+    margin:auto;
+    margin-top: 55px;
 }
+
+/*.container{*/
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
+
+.main{
+
+    /*height:auto;*/
+    /*opacity: 0.5;*/
+
+
+    height:723px;
+    margin:auto;
+    /*max-width: 1550px;*/
+    /*min-width: 940px;*/
+    /*width: 100%;*/
+
+
+
+
+}
+/*.btn:focus{*/
+    /*outline-color:#00000008;*/
+/*}*/
+
+.fl{
+    float:right;
+    border-width:0;
+    border:none;
+
+}
+
+/*button.fl:checked{*/
+    /*border:1px solid red;*/
+/*}*/

@@ -15,6 +15,12 @@ export function HandleOption(e) {
     })
 }
 
+export function Handledropdown(e) {
+    this.setState({
+        selectId:e.target.value
+    })
+}
+
 export const protectedpage = (data) =>{
     if(!localStorage.getItem('is_login')){
         data.history.push('/login')
@@ -25,11 +31,11 @@ export const title =(page)=>{
     document.title =  page
 };
 
-export const Icon =(props)=>{
+export const Icon = (props) =>{
 
-    // const{icon,...other} = props;
-    // return(
-    //     <i{...other} className={`fa fa-${icon}`}/>
-    //
-    // )
+    const{icon,className,...other} = props;
+
+    return(
+        <i {...other} class={`fa fa-${icon} ${className}`}/>
+    )
 };

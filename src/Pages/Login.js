@@ -65,7 +65,7 @@ class Login extends React.Component{
 
     render(){
         return(
-            <Container>
+            <Container className="main p-5">
                 <Row>
                     <Col md={6} className='m-auto'>
                         <InputGroup className={'input-user'}>

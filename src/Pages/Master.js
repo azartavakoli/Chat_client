@@ -64,7 +64,7 @@ class Master extends React.Component {
     render() {
         // console.log(this.state)
         return (
-            <div class="container">
+            <div class="contain">
 
                 <div class="main">
                 <Navbar className="pl-0 mt-3">
@@ -86,11 +86,12 @@ class Master extends React.Component {
                     <NavbarBrand href="/" className="mr-auto" color='white'>HangOuts</NavbarBrand>
 
                 </Navbar>
-                      
+                 <div class={"mainbox"}>
                 <Profile data={this.state} history={this.props.history}/>
                 {
                     this.props.children
                 }
+                     </div>
 
             </div>
 

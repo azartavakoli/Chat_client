@@ -42,7 +42,7 @@ class App extends React.Component{
 
     render () {
            return (
-
+               
                <Switch>
                    {this.route.map(({path,Component,exact,Layout}) => (
                        <Route

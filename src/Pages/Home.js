@@ -1,9 +1,11 @@
 
 import React from 'react';
-import { Container,Row,Col,Card, Input ,Button,CardHeader,Label,FormGroup,ListGroup,ListGroupItem} from 'reactstrap';
+import { Container,Row,Col,Card, Input ,CardHeader,Label,FormGroup,ListGroup,ListGroupItem} from 'reactstrap';
 import Typist  from 'react-typist';
 import swal from 'sweetalert';
-
+import chat3 from './../Assets/Images/chat3.jpg';
+import robot1 from './../Assets/Images/robot1.png';
+import 'hover.css/css/hover-min.css';
 
 import {protectedpage, title,HandleChange,HandleOption,Handledropdown,Icon} from './../Utility';
 
@@ -44,41 +46,29 @@ class Home extends React.Component{
 
 
     q1=()=>{
-        // console.log(this.state.count);
         console.log(this.state.Newid);
-        // console.log(this.state.selectedOption)
-
         return(
 
             <React.Fragment>
-
                 <div class='questiontext'>
-
                     <Typist  className="TypistExample-header placement" avgTypingSpeed={15000} startDelay={1000}
                              cursor={{show: false}}>
-
-
-                        <span class="questiondesign">Are you ready?</span>
-
-
+                        <img src={robot1} class="robot"/>
+                        <span class="questiondesign">{'   '}Are you ready? </span>
                     </Typist>
-
-
                 </div>
 
-                <Button className=" float-right" onClick={()=>{
-
+                <button class="buttons" onClick={()=>{
                     this.setState({
-
                                     step:'q2'
-
                     })
                 }}>
-                    Yes
-                </Button>
-                <Button className=" mr-2 float-right" onClick={this.exit}>
-                    No
-                </Button>
+                   <Icon icon={"check"} className="arrow"/>
+                </button>
+                <button class="buttons" onClick={this.wait}>
+                   <Icon icon={"times"} className="arrow"/>
+                </button>
+
 
             </React.Fragment>
         )
@@ -89,24 +79,18 @@ class Home extends React.Component{
 
     q2 = () =>{
         return(
-
             <React.Fragment>
                 <Col className='p-3 mb-4 questiontext'>
-                    <Typist  className="TypistExample-header" avgTypingSpeed={15000} startDelay={50}
+                    <Typist  className="TypistExample-header" avgTypingSpeed={10000} startDelay={50}
                               cursor={{show: false}}>
-
-
-                                             <span class="questiondesign"> {this.state.data[this.state.Newid].question}</span>
-                                           
-
+                        <img src={robot1} class="robot"/>
+                        <span class="questiondesign"> {this.state.data[this.state.Newid].question}</span>
                     </Typist>
-
-
                 </Col>
-
-
-                <Input type='text' name={'Newanswer'} value={this.state.Newanswer} style={{outline:'none'}} onChange={(e) => HandleChange.call(this,e)}/>
-                    <Button  className=" mt-2 float-right" onClick={()=>{
+                <div class="inputsborder">
+                <input type='text' name={'Newanswer'} value={this.state.Newanswer} class="inputs" onChange={(e) => HandleChange.call(this,e)}/>
+                </div>
+                    <button  class="bigbuttons" style={{outline:'none'}} onClick={()=>{
                         this.setState(prevState =>{
                                 return{
                                     answers:[...prevState.answers,{id:prevState.answers.length,text:prevState.Newanswer}],
@@ -118,10 +102,11 @@ class Home extends React.Component{
                         })
                     }}>
                     Next Question
-                </Button>
+                </button>
             </React.Fragment>
         )
     };
+
 
     q3=()=>{
 
@@ -129,21 +114,20 @@ class Home extends React.Component{
 
             <React.Fragment>
                <div class="p-3 mb-4 questiontext">
-                <Typist  className="TypistExample-header" avgTypingSpeed={15000} startDelay={1000}
+                <Typist  className="TypistExample-header" avgTypingSpeed={10000} startDelay={50}
                           cursor={{show: false}}>
-
-
-                        <span class="questiondesign"> {this.state.data[this.state.Newid].question}</span>
-
-
+                    <img src={robot1} class="robot"/>
+                    <span class="questiondesign"> {this.state.data[this.state.Newid].question}</span>
                     </Typist>
                 </div>
+                <div class="inputyearsborder">
+                <input type='number' name={'Newanswer'} value={this.state.Newanswer} class="inputyears" onChange={(e) => HandleChange.call(this,e)}/>
 
-
-                <Input type='number' name={'Newanswer'} value={this.state.Newanswer} onChange={(e) => HandleChange.call(this,e)}/>
-                <Button  className="mt-2 float-right" onClick={()=>{
-
-                        // console.log(this.state.Newanswer)
+                    <div class="years">
+                        <span class="yearscontent">Yearsold</span>
+                    </div>
+                    </div>
+                <button  class="bigbuttons" style={{outline:'none'}} onClick={()=>{
                        (this.state.Newanswer>18)?
                     this.setState(prevState =>{
                         return{
@@ -167,39 +151,23 @@ class Home extends React.Component{
                     })
                 }}>
                     Next Question
-                </Button>
+                </button>
             </React.Fragment>
         )
     };
 
     q4=()=>{
-        // console.log(this.state.count);
-        console.log(this.state.Newid);
-        // console.log(this.state.selectedOption)
-
         return(
-
             <React.Fragment>
-
                 <Container className='p-3 mb-4 questiontext'>
-
                     <Typist  className="TypistExample-header" avgTypingSpeed={15000} startDelay={50}
                              cursor={{show: false}}>
-
-
+                        <img src={robot1} class="robot"/>
                         <span class="questiondesign">{this.state.data[this.state.Newid].question}</span>
-
-
                     </Typist>
-
-
                 </Container>
-
-
-                <FormGroup>
-
+                <FormGroup className="mt-5">
                     <Label className="ml-5 color">
-
                         <Input type="radio" name="Married"
                                value={'YES'}
                                checked={this.state.selectedOption === 'YES'}
@@ -217,7 +185,7 @@ class Home extends React.Component{
 
                 </FormGroup>
 
-                <Button className="mt-2 float-right" onClick={()=>{
+                <button class="bigbuttons" style={{outline:'none'}} onClick={()=>{
 
                     this.setState(prevState =>{
                        return{
@@ -233,7 +201,7 @@ class Home extends React.Component{
                     })
                 }}>
                     Next Question
-                </Button>
+                </button>
 
 
 
@@ -243,9 +211,6 @@ class Home extends React.Component{
     };
 
     q5 = () =>{
-        console.log('q4');
-        console.log(this.state.Newid);
-
         return(
             <React.Fragment>
 
@@ -253,9 +218,8 @@ class Home extends React.Component{
 
                 <Typist  className="TypistExample-header" avgTypingSpeed={15000} startDelay={100}
                          cursor={{show: false}}>
-
-
-                    <span class="questiondesign">{this.state.data[this.state.Newid].question}</span>
+                    <img src={robot1} class="robot"/>
+                    <span class="questiondesign">  {this.state.data[this.state.Newid].question}</span>
 
 
                 </Typist>
@@ -300,7 +264,7 @@ class Home extends React.Component{
                 </Label>
 
 
-                <Button  className=" mt-2 float-right" onClick={()=>{
+                <button  class="bigbuttons" style={{outline:'none'}} onClick={()=>{
                         this.setState(prevState =>{
                             // console.log(this.state.count)
                                 return{
@@ -315,7 +279,7 @@ class Home extends React.Component{
                         })
                     }}>
                     Next Question
-                </Button>
+                </button>
 
             </React.Fragment>
         )
@@ -326,11 +290,12 @@ class Home extends React.Component{
             <React.Fragment>
                 <div class='p-3 mb-4 questiontext'>
 
-                    <Typist  className="TypistExample-header" avgTypingSpeed={15000} startDelay={1000}
+                    <Typist  className="TypistExample-header" avgTypingSpeed={10000} startDelay={50}
                              cursor={{show: false}}>
 
+                        <img src={robot1} class="robot"/>
 
-                        <span class={"questiondesign"}>{this.state.data[this.state.Newid].question}</span>
+                        <span class={"questiondesign"}>  {this.state.data[this.state.Newid].question}</span>
 
 
                     </Typist>
@@ -338,14 +303,14 @@ class Home extends React.Component{
                 </div>
 
 
-                <select class="ml-3 color"  onChange={(e)=> Handledropdown.call(this,e)}>
+                <select class="select"  onChange={(e)=> Handledropdown.call(this,e)}>
                     <option>Select</option>
                     <option value="Running">Running</option>
                     <option value="swimming">Swimming</option>
                     <option value="Biking">Biking</option>
                 </select>
 
-                <Button  className=" mt-2 float-right" onClick={()=>{
+                <button  class="bigbuttons" style={{outline:'none'}} onClick={()=>{
                         this.setState(prevState =>{
                                 return{
                                     answers:[...prevState.answers,{id:prevState.answers.length,text:prevState.selectId}],
@@ -357,7 +322,7 @@ class Home extends React.Component{
                         })
                     }}>
                     Next Question
-                </Button>
+                </button>
             </React.Fragment>
         )
     };
@@ -369,20 +334,20 @@ class Home extends React.Component{
 
                 <Col className="p-3 mb-4 questiontext">
 
-                    <Typist  className="TypistExample-header" avgTypingSpeed={15000} startDelay={1000}
+                    <Typist  className="TypistExample-header" avgTypingSpeed={10000} startDelay={50}
                              cursor={{show: false}}>
 
-
-                        <span class="questiondesign">{this.state.data[this.state.Newid].question}</span>
+                        <img src={robot1} class="robot"/>
+                        <span class="questiondesign">   {this.state.data[this.state.Newid].question}</span>
 
 
                     </Typist>
 
                 </Col>
-
-                <Input type='text' name={'Newanswer'} value={this.state.Newanswer} onChange={(e) => HandleChange.call(this,e)}/>
-
-                <Button  className=" mt-2 float-right" onClick={()=>{
+                <div class="inputsborder">
+                <input type='text' name={'Newanswer'} value={this.state.Newanswer} class="inputs" onChange={(e) => HandleChange.call(this,e)}/>
+                 </div>
+                <button  class="bigbuttons" style={{outline:'none'}} onClick={()=>{
                         this.setState(prevState =>{
                             // console.log(this.state.count)
                                 return{
@@ -398,7 +363,7 @@ class Home extends React.Component{
 
                     }}>
                 Next Question
-            </Button>
+            </button>
             </React.Fragment>
         )
     };
@@ -409,31 +374,23 @@ class Home extends React.Component{
             <React.Fragment>
                 <div class='p-3 mb-4 questiontext'>
 
-                    <Typist  className="TypistExample-header" avgTypingSpeed={15000} startDelay={1000}
+                    <Typist  className="TypistExample-header" avgTypingSpeed={10000} startDelay={50}
                              cursor={{show: false}}>
-
-
-                        <span class="questiondesign">I enjoyed to chat with you</span>
-
-
+                        <img src={robot1} class="robot"/>
+                        <span class="questiondesign">  I enjoyed to chat with you</span>
                     </Typist>
-
                 </div>
-
                 <Col>
-
-                    <Button  className=" mt-2 float-right" onClick={()=>{
+                    <button  class="bigbuttons seebutton" style={{outline:'none'}} onClick={()=>{
                         this.setState({
-                                
                                     step:'answer'
-                               
                         })
 
                     }}>
                         See your answer
-                    </Button>
+                    </button>
 
-                    <Button onClick={this.exit}> Exit</Button>
+                    <button class="bigbuttons exitbutton" style={{outline:'none'}} onClick={this.exit}> Exit</button>
                 </Col>
 
 
@@ -461,14 +418,12 @@ class Home extends React.Component{
             })
         };
 
+    wait=()=> {
+        swal (' I am waiting for you');
+    };
 
-        //     swal("Are you sure you want to do this?", {
-        //         buttons: ["no", true],
-        //     });
-        //     console.log(this.props)
-        //     localStorage.removeItem('is_login');
-        //     this.props.history.push('/login');
-        // };
+
+
 
     answer=()=> {
         // console.log (this.state.answers)
@@ -489,7 +444,10 @@ class Home extends React.Component{
                                     } )
                                 }
                             </ListGroup>
+
+                            <button  class="bigbuttons answerbutton" style={{outline:'none'}} onClick={this.exit}> Exit</button>
                         </Col>
+
                     </Row>
                 </Container>
             </React.Fragment>
@@ -497,49 +455,6 @@ class Home extends React.Component{
     };
 
 
-    // next = ()=>{
-    //     return(
-    //     <Label className="ml-5">
-    //         <Input type="radio" name="Married"
-    //                value={'married'}
-    //                checked={this.state.selectedOption === 'married'}
-    //                onChange={(e)=> HandleOption.call(this,e)} />Yes,I'm Married
-    //     </Label>
-    //
-    //
-    //
-    //     <Label className="ml-5">
-    //
-    //         <Input type="radio" name="single"
-    //     value={'single'}
-    //     checked={this.state.selectedOption === 'single'}
-    //     onChange={(e)=> HandleOption.call(this,e)}/>No,I'm Single
-    //     </Label>
-    //
-    //
-    //     <Button className="mt-2 float-right" onClick={()=>{
-    //
-    //         this.setState(prevState =>{
-    //             return{
-    //                 answers:[...prevState.answers,{id:prevState.answers.length,text:prevState.selectedOption}],
-    //                 Newanswer: '',
-    //                 step:'q4',
-    //                 Newid:++prevState.Newid,
-    //                 count :++prevState.count
-    //
-    //
-    //             }
-    //
-    //         })
-    //     }}>
-    //     Next Question
-    //     </Button>
-    //
-    //
-    //     )
-    //
-    //
-    // };
 
     toggle = ()=>{
     this.setState({
@@ -560,9 +475,9 @@ class Home extends React.Component{
                 <Row>
                     <Col md={9} className="box">
                         <Card>
-                            <CardHeader className="titrbox">
+                            <CardHeader className="p-2">
 
-                                <span class="titr"> I am a robot.....</span>
+                                <span class="titr"><img alt='image' src={chat3} class="chat"/>  I am a robot.....</span>
                                 <div style={{display:'inline-block',float:'right'}}>
                                     <button class={boxClass.join(' ')} style={{outline:'none'}} onClick={(this.toggle)}>
                                         <Icon icon={'chevron-up'} className='arrow'/></button>

@@ -67,7 +67,7 @@ class Master extends React.Component {
             <div class="contain">
 
                 <div class="main">
-                <Navbar className="pl-0 mt-3">
+                <Navbar className="pl-0">
                     <UncontrolledDropdown inNavbar>
                     <DropdownToggle size='sm' outline  className='m-2'>
                         {<Icon icon={'bars'}/>}
